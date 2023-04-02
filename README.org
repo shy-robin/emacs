@@ -1,0 +1,76 @@
+* Emacs
+
+** 参考
+
+- <https://zilongshanren.com/learnemacs/>
+- <http://book.emacs-china.org/>
+- <https://www.youtube.com/watch?v=0hpVuoyO8_o&list=PLZx9tb9Niew8qMpCeYnsezCE-s5mKw_>
+  
+** 快捷键
+
+*** 基本符号
+
+- C: Control
+- M: Meta - option in MacOS / alt in Windows
+- s: Super - command in MacOS
+- S: Shift
+
+*** 组合键
+
+- C-g: 终止操作
+- C-x C-f: Find file
+- C-x C-s: Save file
+- C-x C-e: Execute last sexps 执行最后一个表达式
+- C-h k: Help Keybindings
+- C-h v: Help Variables
+- C-h f: Help Functions
+- C-h m: Help Modes
+- C-h i: Help Info
+
+*** 鼠标移动
+
+- C-f 为前移一个字符， f 代表 forward。
+- C-b 为后移一个字符， b 代表 backward。
+- C-p 为上移至前一行， p 代表 previous。
+- C-n 为上移至下一行， n 代表 next。
+- C-a 为移至行首， a 代表 ahead。
+- C-e 为移至行尾， e 代表 end。
+
+** Elisp
+
+*** 教程
+
+- <https://learnxinyminutes.com/docs/elisp>
+
+*** 语法
+
+- elisp 语法非常简单，所有代码都有表达式组成，表达式由括号包裹，括号里的第一个参数为函数名，后面的为传入函数的参数；
+- 如 (+ 2 2)，表示执行加法函数，进行 2 + 2 的加法运算；
+- 可以在 scratch buffer 中输入表达式，光标移动到表达式括号的后面，按住 C-x C-e 执行表达式（注意，光标的位置决定了执行表达式的位置）;
+
+- (setq name "Robin")
+- (insert name)
+- (message name)
+- (defun hello (name) (insert "hello " name))
+- (defun hello (name) (interactive) (insert "hello " name)) 将函数变为可交互，即可通过 M-x 调用
+
+** 配置
+
+- Major-mode: 一个文件只有一个 major mode
+- Minor-mode: 一个文件可以有多个 minor mode
+- 使用 C-h m 查看当前 buffer 的所有 Mode
+- global- 是作用于所有 buffer 的 mode
+
+setq 与 setq-default 的区别
+
+- setq 是作用于当前 buffer 的变量，即局部变量
+- setq-default 是作用于所有 buffer 的变量，即全局变量
+
+修改完配置文件后，每一句都要 C-x C-e 重新执行效率低，此时可以用 M-x eval-buffer 执行整个 buffer 以重新加载配置文件
+
+- 使用 list-packages 或者 package-list-packages 列出所有可使用的包;
+- 使用 C-s 进行搜索，使用 i 标记要安装的包，使用 d 标记要删除的包，使用 u 取消标记，使用 U 标记要更新的包，使用 x 执行标记的操作
+
+使用 M-x customized-group-other-window 自定义每个包的配置，修改后使用 C-x C-s 保存配置，之后会在 custom.el 中生成相关配置
+
+使用 M-x info 可以查看 elisp 的深入教程
