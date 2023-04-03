@@ -55,6 +55,8 @@
 
 ;; 禁止生成备份文件（以 ~ 结尾的文件）
 (setq make-backup-files nil)
+;; 禁止自动生成 auto-save 文件
+(setq auto-save-default nil)
 
 ;; 选择文本后输入直接替换文本，而不是添加文本
 (delete-selection-mode t)
