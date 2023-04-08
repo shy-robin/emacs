@@ -79,4 +79,15 @@
 (use-package expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(use-package evil)
+(evil-mode t)
+;; (setq evil-want-C-u-scroll t)
+;; 在 insert 模式下使用 emacs 自带的一些快捷键，如 C-a
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+(use-package evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader "SPC")
+
 (provide 'init-packages)
