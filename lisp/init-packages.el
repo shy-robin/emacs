@@ -76,4 +76,7 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+(use-package expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'init-packages)
