@@ -23,6 +23,8 @@
 (use-package smartparens)
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
+;; 在 emacs-lisp-mode 下输入单引号不自动添加
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
 ;; 自动补全
 (use-package company)

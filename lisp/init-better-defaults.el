@@ -65,4 +65,11 @@
 ;; 支持不同分屏下 dired 模式互传文件
 (setq dired-dwim-target t)
 
+;; 高亮当前光标的最近一层的 parens
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+    (cond ((looking-at-p "\\s(") (funcall fn))
+          (t (save-excursion
+               (ignore-errors (backward-up-list))
+               (funcall fn)))))
+
 (provide 'init-better-defaults)
