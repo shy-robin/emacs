@@ -18,4 +18,7 @@
 
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+;; 增强补全功能，使用 command + /
+(global-set-key (kbd "s-/") 'hippie-expand)
+
 (provide 'init-keybindings)
