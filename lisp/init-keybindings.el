@@ -12,4 +12,8 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; 查找 git 范围内文件
+;; C-c 用户自定义快捷键，p project，f file
+(global-set-key (kbd "C-c p f") 'counsel-git)
+
 (provide 'init-keybindings)

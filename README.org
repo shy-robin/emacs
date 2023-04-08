@@ -74,3 +74,24 @@ setq 与 setq-default 的区别
 使用 M-x customized-group-other-window 自定义每个包的配置，修改后使用 C-x C-s 保存配置，之后会在 custom.el 中生成相关配置
 
 使用 M-x info 可以查看 elisp 的深入教程
+
+Major mode and minor mode
+1. conventions
+- text-mode/special-mode/prog-mode
+- naming: xxx-mode, xxx-mode-key-map, xxx-mode-hook
+
+provide 用于提供一个 feature（可通过 C-h v 查看变量 features）,require 用于引用一个 feature。
+
+load and load-file
+- load 函数会首先去查找 load-path 下的 .elc 文件（可通过 M-x byte-compile-file 生成），如果找不到就会查找对应的 .el 文件；
+- load-file 不需要依赖 load-path，加载一个绝对路径的文件；
+
+require, provide, load and load-file
+- 首先，provide 会提供一个 feature 到全局变量 features 中；
+- 当文件调用 require 时，会首先到 features 中查找有没有对应的 feature；
+- 如果没有找到对应的 feature，会调用 load 去加载对应的文件，而 load 函数又依赖 load-file 去加载一个绝对路径的文件
+
+autoload
+- autoload 用于动态加载一个 feature 或文件
+- (autoload 'test-func "feature/load-path")，当调用 test-func 时，就能动态加载这个 feature 或文件了。
+
