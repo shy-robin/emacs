@@ -20,4 +20,18 @@
 ;; 关闭警告声音
 (setq ring-bell-function 'ignore)
 
+;; 缩进整个 buffer
+(defun indent-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+;; 如果选中了文本则缩进选中的文本，否则缩进整个 buffer
+(defun indent-region-or-buffer()
+  (interactive)
+  (save-excursion
+    (if (region-active-p) (progn (indent-region (region-beginning) (region-end))
+				 (message "Indented selected region!"))
+      (progn (indent-buffer) (message "Indented buffer!"))))
+  )
+
 (provide 'init-better-defaults)

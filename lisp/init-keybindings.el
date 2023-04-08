@@ -16,4 +16,6 @@
 ;; C-c 用户自定义快捷键，p project，f file
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
 (provide 'init-keybindings)
