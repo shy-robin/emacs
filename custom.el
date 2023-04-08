@@ -6,7 +6,7 @@
  '(custom-safe-themes
    '("78e6be576f4a526d212d5f9a8798e5706990216e9be10174e3f3b015b8662e27" default))
  '(package-selected-packages
-   '(nodejs-repl js2-mode company smartparens counsel swiper hungry-delete monokai-theme use-package)))
+   '(reveal-in-osx-finder nodejs-repl js2-mode company smartparens counsel swiper hungry-delete monokai-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

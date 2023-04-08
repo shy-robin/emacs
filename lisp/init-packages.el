@@ -38,4 +38,7 @@
 ;; nodejs
 (use-package nodejs-repl)
 
+;; macOS 下快速在 finder 下打开文件
+(use-package reveal-in-osx-finder)
+
 (provide 'init-packages)

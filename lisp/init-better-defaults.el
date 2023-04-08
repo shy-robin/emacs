@@ -46,4 +46,23 @@
 					 try-complete-lisp-symbol-partially
 					 try-complete-lisp-symbol))
 
+;; 修改确认提示
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; 默认递归删除或拷贝目录（在 dired 模式下）
+(setq dired-recursive-deletes 'always)
+(setq dired-recursive-copies 'always)
+
+;; 多个 dired 模式共用一个 buffer
+(put 'dired-find-alternate-file 'disabled nil)
+(require 'dired)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+;; 使用 C-x C-j 快速进入 dired 模式
+(require 'dired-x)
+
+;; 支持不同分屏下 dired 模式互传文件
+(setq dired-dwim-target t)
+
 (provide 'init-better-defaults)

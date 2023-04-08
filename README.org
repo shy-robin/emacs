@@ -95,3 +95,15 @@ autoload
 - autoload 用于动态加载一个 feature 或文件
 - (autoload 'test-func "feature/load-path")，当调用 test-func 时，就能动态加载这个 feature 或文件了。
 
+** Dired mode
+
++: create a directory
+C-x C-f: create a file
+g: refresh dired buffer
+C: copy a file
+d: delete a file (markup)
+u: cancel markup
+x: execute markup
+D: delete a file directly
+R: rename a file
+
